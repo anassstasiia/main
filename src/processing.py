@@ -1,6 +1,6 @@
 def filter_by_state(line: list, parameter: str = "EXECUTED") -> list:
     """Функция, которая принимает список словарей и опционально значение для ключа"""
-    return [i for i in line if i["state"] == parameter]
+    return [i for i in line if i.get("state") == parameter]
 
 
 def sort_by_date(id_card: list, by_date: bool = True) -> list:
