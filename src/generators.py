@@ -85,11 +85,11 @@ def transaction_descriptions(transactions):
 
 def card_number_generator(start, finish):
     if finish > 10000000000000000:
-        raise ValueError("Incorrect diapason")
+        raise Exception("Incorrect finish")
     elif start < 0 or finish < 0:
-        raise ValueError("Incorrect diapason")
+        raise Exception("Incorrect diapason")
     elif start >= finish:
-        raise ValueError("Incorrect diapason")
+        raise Exception("Incorrect diapason")
     else:
         for x in range(start, finish):
             need_zero = 16 - len(str(x))
@@ -97,6 +97,3 @@ def card_number_generator(start, finish):
             result_space = f'{str(result)[:4]} {str(result)[4:8]} {str(result)[-8:-4]} {str(result)[-4:]}'
             yield result_space
 
-
-if __name__ == '__main__':
-    print(list(card_number_generator(-5, -1)))
