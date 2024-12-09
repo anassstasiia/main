@@ -1,21 +1,15 @@
-from typing import Union
-
-
-def get_mask_card_number(card_number: Union[int]) -> Union[str]:
+def get_mask_card_number(card_number: int) -> str:
     """Принимает на вход номер карты и возвращает ее маску"""
-    mask_card_number = ""
-    for i, number in enumerate(str(card_number), start=1):
-        if i in range(7, 13):
-            mask_card_number += "*"
-        else:
-            mask_card_number += number
-        if i in (4, 8, 12):
-            mask_card_number += " "
-    return mask_card_number
+    if len(str(card_number)) == 16 and card_number > 0:
+        return f"{str(card_number)[:4]} {str(card_number)[4:6]}** **** {str(card_number)[-4:]}"
+    else:
+        raise ValueError("Card 16")
 
 
-def get_mask_account(account: Union[int]) -> Union[str]:
+def get_mask_account(account: int) -> str:
     """Принимает на вход номер счета и возвращает его маску"""
-    mask_account = ""
-    mask_account = "**" + str(account)[-4:]
-    return mask_account
+    if len(str(int(account))) == 20:
+        mask_account = "**" + str(account)[-4:]
+        return mask_account
+    else:
+        raise ValueError("account 20")
