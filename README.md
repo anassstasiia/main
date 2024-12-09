@@ -34,3 +34,32 @@ poetry add --group dev pytest-cov
 git add .
 git push
 ```
+
+# Проект generators
+
+## Описание:
+
+Создать инструменты для эффективной работы с большими объемами данных транзакций, используя возможности Python для обработки данных через генераторы. Эти генераторы должны позволять финансовым аналитикам быстро и удобно находить нужную информацию о транзакциях и проводить анализ данных. создать модуль 
+generators
+, который будет содержать функции для работы с массивами транзакций.
+
+## Примеры
+
+1. def filter_by_currency
+
+usd_transactions = filter_by_currency(transactions, "USD")
+for _ in range(2):
+    print(next(usd_transactions))
+
+2. def transaction_descriptions
+
+descriptions = transaction_descriptions(transactions)
+for _ in range(5):
+    print(next(descriptions))
+
+3. def card_number_generator
+
+for card_number in card_number_generator(1, 5):
+    print(card_number)
+
+
