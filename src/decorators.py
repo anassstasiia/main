@@ -2,9 +2,19 @@ from functools import wraps
 
 
 def log(filename=None):
+    """
+    Декоратор для логирования выполнения функции.
+    """
+
     def wrapper(func):
+        """Функция, которая принимает другую функцию
+        func
+         в качестве аргумента."""
+
         @wraps(func)
         def inner(*args, **kwargs):
+            """Функция, которая принимает аргумент
+            arg и kwargs"""
 
             try:
                 result = func(*args, **kwargs)
@@ -23,5 +33,7 @@ def log(filename=None):
                 else:
                     print(f"{message}")
                 return result
+
         return inner
+
     return wrapper
